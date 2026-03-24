@@ -46,7 +46,7 @@ export default function FaresTab({ data }) {
             key={c.metric}
             label={c.metric}
             values={values}
-            format={isPercent ? (v) => `${v.toFixed(1)}%` : (v) => `$${v.toFixed(0)}`}
+            format={isPercent ? (v) => `${v.toFixed(1)}%` : (v) => `$${v < 10 ? v.toFixed(2) : Math.round(v).toLocaleString()}`}
           />
         );
       })}
