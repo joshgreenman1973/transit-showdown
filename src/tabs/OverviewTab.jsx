@@ -136,10 +136,10 @@ const takeaways = {
 
 const styles = {
   intro: { fontSize: 16, lineHeight: 1.7, color: '#444', marginBottom: 8 },
-  cityRow: { display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 8 },
+  cityRow: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginBottom: 8 },
   cityPill: {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
-    padding: '10px 16px', borderRadius: 10, minWidth: 80, flex: '1 1 0',
+    padding: '10px 16px', borderRadius: 10,
   },
   cityName: { fontSize: 11, fontWeight: 400, marginTop: 2 },
   takeawayGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 },
