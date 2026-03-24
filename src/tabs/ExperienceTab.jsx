@@ -1,6 +1,6 @@
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  BarChart, Bar, ReferenceLine,
+  ReferenceLine,
 } from 'recharts';
 import { CITIES, CITY_CONFIG } from '../utils/constants';
 import ComparisonBar from '../components/ComparisonBar';
@@ -23,31 +23,6 @@ export default function ExperienceTab({ data }) {
         London counts "step-free from street to platform." Paris counts fully accessible stations.
         Tokyo and Seoul count stations with at least one barrier-free route.
       </CaveatBox>
-
-      <ChartWrapper>
-        <div style={styles.chartBox}>
-          <ResponsiveContainer width="100%" height={280}>
-            <BarChart
-              data={CITIES.map((c) => ({
-                city: CITY_CONFIG[c].short,
-                pct: accessibility.data[c].pct,
-                color: CITY_CONFIG[c].color,
-              }))}
-              margin={{ top: 10, right: 20, bottom: 10, left: 0 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
-              <XAxis dataKey="city" tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
-              <Tooltip formatter={(value) => [`${value}%`, 'Step-free access']} />
-              <Bar dataKey="pct" radius={[6, 6, 0, 0]}>
-                {CITIES.map((c, i) => (
-                  <rect key={c} fill={CITY_CONFIG[c].color} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </ChartWrapper>
 
       <ComparisonBar
         label="Step-Free Stations (%)"
