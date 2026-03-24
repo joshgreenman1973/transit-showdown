@@ -7,9 +7,21 @@ export default function MethodologyTab() {
     <div>
       <ChartWrapper>
         <div style={styles.intro}>
-          This comparison draws on publicly available data from five transit systems.
+          This comparison draws on publicly available data from eight transit systems.
           Where measurement methodologies differ, we note the distinction throughout.
           Treat cross-city comparisons as directional, not precise.
+        </div>
+      </ChartWrapper>
+
+      <ChartWrapper>
+        <div style={styles.disclaimer}>
+          <strong>Data provenance note:</strong> The reliability, headway, and ridership recovery figures
+          for Paris, Tokyo, Seoul, Beijing, Shanghai, and Hong Kong are representative estimates based on
+          published annual reports and government statistics — not live API pulls. NYC data is closest to
+          source (Socrata open data). London data is from TfL published reports. Chinese metro data comes
+          from official operator annual reports, which have limited independent verification. Crime data
+          definitions vary so dramatically by country that cross-city comparisons should be treated with
+          particular skepticism.
         </div>
       </ChartWrapper>
 
@@ -47,6 +59,21 @@ export default function MethodologyTab() {
             { name: 'KOTI Transport DB', url: 'https://www.ktdb.go.kr/', desc: 'National transportation statistics' },
             { name: 'Income Data', url: 'https://kostat.go.kr/', desc: 'KOSTAT household income' },
           ]} />
+          <SourceCard city="beijing" sources={[
+            { name: 'Beijing Subway', url: 'https://www.bjsubway.com/', desc: 'Official operator data and fare info' },
+            { name: 'Beijing Transport Commission', url: 'https://jtw.beijing.gov.cn/', desc: 'Municipal transport statistics' },
+            { name: 'NBS China', url: 'https://www.stats.gov.cn/', desc: 'National Bureau of Statistics income data' },
+          ]} />
+          <SourceCard city="shanghai" sources={[
+            { name: 'Shanghai Metro', url: 'https://www.shmetro.com/', desc: 'Official operator and ridership data' },
+            { name: 'Shanghai Open Data', url: 'https://data.sh.gov.cn/', desc: 'Municipal open data portal' },
+            { name: 'NBS China', url: 'https://www.stats.gov.cn/', desc: 'National Bureau of Statistics income data' },
+          ]} />
+          <SourceCard city="hongkong" sources={[
+            { name: 'MTR Corporation', url: 'https://www.mtr.com.hk/', desc: 'Annual reports, ridership, performance' },
+            { name: 'HK Census & Statistics', url: 'https://www.censtatd.gov.hk/', desc: 'Income and demographic data' },
+            { name: 'HK Transport Dept', url: 'https://www.td.gov.hk/', desc: 'Transport statistics and open data' },
+          ]} />
         </div>
       </ChartWrapper>
 
@@ -74,19 +101,33 @@ export default function MethodologyTab() {
             means the Zone 1 fare overstates typical commuter costs (most ride Zone 1-2 or 1-3).
           </Caveat>
           <Caveat title="Income & affordability" level="medium">
-            Five different countries with five different income survey methodologies, tax systems,
-            and household definitions. The "% of income" metric is approximate at best.
-            It's most useful for ordering (Seoul cheapest, London most expensive) rather than
-            precise ratios.
+            Eight different countries/territories with different income surveys, tax systems,
+            and household definitions. Chinese income data may not fully capture cost of living
+            in Beijing/Shanghai. The "% of income" metric is approximate — useful for ordering
+            (Beijing cheapest, London most expensive) rather than precise ratios.
+          </Caveat>
+          <Caveat title="Safety / crime" level="high">
+            The least comparable metric. London counts antisocial behavior; NYC counts only
+            felonies; Chinese cities use state-reported figures with limited independent verification;
+            Tokyo's numbers miss underreported groping. Beijing/Shanghai's near-zero figures also
+            reflect airport-style security screening at every station entrance — a different approach
+            to safety entirely.
           </Caveat>
           <Caveat title="System boundaries" level="low">
             NYC = MTA subway + bus. London = TfL Underground + buses (excludes Overground,
-            Elizabeth line, National Rail). Paris = RATP Metro + buses (excludes RER, Transilien).
-            Tokyo = Tokyo Metro + Toei (excludes JR East, private railways — which carry more
-            riders). Seoul = Seoul Metro Lines 1-9 + connected metropolitan lines.
+            Elizabeth line). Paris = RATP Metro + buses (excludes RER). Tokyo = Tokyo Metro + Toei
+            (excludes JR East, private railways). Seoul = Seoul Metro Lines 1-9 + metro lines.
+            Beijing/Shanghai = all urban metro lines. Hong Kong = MTR heavy rail (excludes light rail).
           </Caveat>
           <Caveat title="Currency conversion" level="low">
-            GBP $1.27, EUR $1.09, JPY $0.0067, KRW $0.00074. Rates as of January 2026.
+            GBP $1.27, EUR $1.09, JPY $0.0067, KRW $0.00074, CNY $0.14, HKD $0.13.
+            Rates as of January 2026.
+          </Caveat>
+          <Caveat title="Chinese data transparency" level="high">
+            Beijing and Shanghai metro data comes from official operator and government sources.
+            Independent verification is limited. Ridership figures are generally considered
+            reliable but performance and safety statistics have less third-party validation than
+            data from systems in democracies with press freedom.
           </Caveat>
         </div>
       </ChartWrapper>

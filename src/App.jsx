@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { TABS } from './utils/constants';
 import OverviewTab from './tabs/OverviewTab';
 import ReliabilityTab from './tabs/ReliabilityTab';
+import ExperienceTab from './tabs/ExperienceTab';
 import FaresTab from './tabs/FaresTab';
 import MethodologyTab from './tabs/MethodologyTab';
 import './App.css';
@@ -27,6 +28,7 @@ export default function App() {
     switch (activeTab) {
       case 'overview': return <OverviewTab faresData={faresData} reliabilityData={reliabilityData} />;
       case 'reliability': return <ReliabilityTab data={reliabilityData} />;
+      case 'experience': return <ExperienceTab data={reliabilityData} />;
       case 'fares': return <FaresTab data={faresData} />;
       case 'methodology': return <MethodologyTab />;
       default: return null;
@@ -38,7 +40,7 @@ export default function App() {
       <header className="header">
         <div className="header-inner">
           <h1 className="title">Transit Showdown</h1>
-          <p className="subtitle">NYC &middot; London &middot; Paris &middot; Tokyo &middot; Seoul</p>
+          <p className="subtitle">8 Cities &middot; 5 Dimensions &middot; 1 Comparison</p>
         </div>
       </header>
 

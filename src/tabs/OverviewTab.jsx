@@ -17,8 +17,8 @@ export default function OverviewTab({ faresData, reliabilityData }) {
     <div>
       <ChartWrapper>
         <div style={styles.intro}>
-          Five of the world's great transit systems, compared head-to-head across
-          reliability, frequency, and affordability.
+          Eight of the world's great transit systems, compared across
+          reliability, frequency, affordability, accessibility, and safety.
         </div>
       </ChartWrapper>
 
@@ -86,33 +86,51 @@ export default function OverviewTab({ faresData, reliabilityData }) {
 const takeaways = {
   nyc: [
     'Only 24/7 subway in the group',
-    'Most affordable monthly pass vs income (1.9%)',
-    'Largest physical network (665 track miles)',
+    'Affordable monthly pass (1.9% of income)',
     'Worst on-time performance (~80%)',
+    'Only 28% of stations accessible',
   ],
   london: [
     'Pioneered underground rail (1863)',
-    'Massive bus network (675 routes)',
-    'Most expensive monthly pass ($198 equiv)',
+    'Most expensive monthly pass ($198)',
     'Strong reliability (91-92%)',
+    'Only 36% of stations step-free',
   ],
   paris: [
     'Cheapest European monthly pass ($94)',
-    'Frequent strikes impact reliability',
-    'Grand Paris Express adding 68 new stations',
-    'Navigo pass covers all zones since 2015',
+    'Strikes cause reliability dips',
+    'Only 3% of stations accessible (!)',
+    'Grand Paris Express adding 68 stations',
   ],
   tokyo: [
     'Highest ridership per line in the world',
     'Legendary punctuality (96%+)',
-    'Cheapest single ride ($1.21)',
+    '92% of stations accessible',
     'Complex multi-operator system',
   ],
   seoul: [
-    'Largest station count (739)',
-    'Cheapest monthly pass ($48, Climate Card)',
-    'Newest major system (1974)',
-    'Near-perfect reliability (97%+)',
+    'Most stations in the group (739)',
+    'Cheapest monthly pass ($48)',
+    '95% of stations accessible',
+    'Exceeded pre-COVID ridership',
+  ],
+  beijing: [
+    'Highest daily ridership (12M)',
+    'Cheapest rides ($0.42)',
+    'Airport-style security screening',
+    'Fastest-growing network in history',
+  ],
+  shanghai: [
+    'Longest metro by track length',
+    'Cheapest rides (tied with Beijing)',
+    '90% of stations accessible',
+    'Exceeded pre-COVID ridership by 13%',
+  ],
+  hongkong: [
+    'Gold standard: 99.5%+ reliability',
+    '98% of stations accessible',
+    'One of few profitable metro systems',
+    'Smallest network, highest efficiency',
   ],
 };
 
