@@ -115,8 +115,8 @@ export default function ExperienceTab({ data }) {
         </div>
       </ChartWrapper>
 
-      {/* SPEED */}
-      <SectionTitle>Average Speed & Journey Time</SectionTitle>
+      {/* SUBWAY SPEED */}
+      <SectionTitle>Subway: average speed & journey time</SectionTitle>
 
       <CaveatBox>
         "Commercial speed" includes station dwell time and acceleration/deceleration.
@@ -126,14 +126,14 @@ export default function ExperienceTab({ data }) {
       </CaveatBox>
 
       <ComparisonBar
-        label="Average Speed (km/h)"
+        label="Average speed (km/h)"
         values={Object.fromEntries(CITIES.map((c) => [c, speed.subway[c].avgSpeedKmh]))}
         format={(v) => `${Math.round(v)} km/h`}
         note="Higher is better. Includes dwell time."
       />
 
       <ComparisonBar
-        label="Typical 10km Journey (minutes)"
+        label="Typical 10km journey (minutes)"
         values={Object.fromEntries(CITIES.map((c) => [c, speed.subway[c].typical10kmMin]))}
         format={(v) => `${Math.round(v)} min`}
         note="Lower is better. Platform-to-platform, no transfers."
@@ -155,6 +155,90 @@ export default function ExperienceTab({ data }) {
           })}
         </div>
       </ChartWrapper>
+
+      {/* BUS SPEED */}
+      {speed.bus && (
+        <>
+          <SectionTitle>Bus: average speed & journey time</SectionTitle>
+
+          <CaveatBox>
+            Bus "revenue speed" is total route distance divided by total trip time, including all stops,
+            boarding, and traffic delays -- what a passenger actually experiences. NYC, London, and
+            Paris report this metric directly from operational data. Tokyo, Beijing, and Shanghai figures
+            are derived from government transport surveys and planning models (marked "moderate" confidence
+            below). Paris figure is for intra-muros (city proper) only; its network-wide average
+            including suburbs is ~14 km/h.
+          </CaveatBox>
+
+          <ComparisonBar
+            label="Average bus speed (km/h)"
+            values={Object.fromEntries(CITIES.map((c) => [c, speed.bus[c].avgSpeedKmh]))}
+            format={(v) => `${v.toFixed(1)} km/h`}
+            note="Higher is better. Revenue speed including all stops and traffic."
+          />
+
+          <ComparisonBar
+            label="Typical 5km bus journey (minutes)"
+            values={Object.fromEntries(CITIES.map((c) => [c, speed.bus[c].typical5kmMin]))}
+            format={(v) => `${Math.round(v)} min`}
+            note="Lower is better. Includes boarding, stops, and traffic."
+          />
+
+          <ChartWrapper>
+            <div style={styles.detailGrid}>
+              {CITIES.map((c) => {
+                const d = speed.bus[c];
+                const cfg = CITY_CONFIG[c];
+                const confidenceLabel = {
+                  'high': 'High confidence',
+                  'moderate-high': 'Moderate-high confidence',
+                  'moderate': 'Moderate confidence',
+                };
+                const confidenceColor = {
+                  'high': '#558B2F',
+                  'moderate-high': '#7B8D28',
+                  'moderate': '#E65100',
+                };
+                return (
+                  <div key={c} style={{ ...styles.detailCard, borderLeft: `4px solid ${cfg.color}` }}>
+                    <div style={{ color: cfg.color, fontWeight: 700, fontSize: 13 }}>{cfg.name}</div>
+                    <div style={styles.bigNum}>{d.avgSpeedKmh} km/h</div>
+                    <div style={styles.detailSub}>{d.typical5kmMin} min for 5km</div>
+                    <div style={styles.detailNote}>{d.note}</div>
+                    <div style={{ fontSize: 10, color: confidenceColor[d.confidence] || '#888', marginTop: 4, fontWeight: 600 }}>
+                      {confidenceLabel[d.confidence] || d.confidence}
+                    </div>
+                    <div style={{ fontSize: 10, color: '#aaa', marginTop: 2 }}>{d.source}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </ChartWrapper>
+
+          <ChartWrapper>
+            <div style={styles.methodBox}>
+              <div style={styles.methodTitle}>How bus speed is calculated</div>
+              <div style={styles.methodText}>{speed.bus.calculationMethod}</div>
+            </div>
+          </ChartWrapper>
+
+          <ChartWrapper delay={0.1}>
+            <div style={styles.insight}>
+              <p><strong>Paris has the slowest buses of any city here</strong> at just 9 km/h within city limits --
+              even slower than Manhattan's famously slow 10.1 km/h. The city's aggressive reallocation of road space
+              for bike lanes and pedestrian zones has inadvertently slowed buses without providing compensating
+              bus-priority infrastructure.</p>
+              <p style={{ marginTop: 10 }}><strong>Seoul is the standout success story.</strong> Its 2004 median bus
+              lane reform -- moving bus lanes to the center of major arterials, separated from car traffic -- roughly
+              doubled speeds on reformed corridors. The 119+ km exclusive median bus lane network is a model studied
+              by transit planners worldwide.</p>
+              <p style={{ marginTop: 10 }}><strong>NYC's 13.2 km/h citywide average masks enormous variation.</strong> Manhattan
+              averages 10.1 km/h while outer-borough routes can reach 16-18 km/h. The MTA's bus lane expansion and
+              congestion pricing (launched January 2025) are early policy interventions aimed at improving these numbers.</p>
+            </div>
+          </ChartWrapper>
+        </>
+      )}
 
       {/* SAFETY */}
       <SectionTitle>Safety: Crime Rates</SectionTitle>
@@ -227,4 +311,10 @@ const styles = {
     backgroundColor: '#F8F8F0', border: '1px solid #E8E8D8',
     borderRadius: 10, padding: '16px 20px', fontSize: 14, lineHeight: 1.6, color: '#444',
   },
+  methodBox: {
+    backgroundColor: '#F5F7FA', border: '1px solid #DEE2E8',
+    borderRadius: 10, padding: '16px 20px', marginBottom: 12,
+  },
+  methodTitle: { fontSize: 13, fontWeight: 700, color: '#1A1A1A', marginBottom: 6 },
+  methodText: { fontSize: 12, lineHeight: 1.6, color: '#555' },
 };

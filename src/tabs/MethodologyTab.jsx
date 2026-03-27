@@ -34,18 +34,21 @@ export default function MethodologyTab() {
             { name: 'Wait Assessment', url: 'https://data.ny.gov/Transportation/MTA-Subway-Wait-Assessment-2020-2024/6b7q-snec', desc: 'Regularity of train spacing' },
             { name: 'MTA Fares', url: 'https://www.mta.info/fares', desc: 'OMNY caps and fare structure' },
             { name: 'Income Data', url: 'https://data.census.gov/', desc: 'American Community Survey 2024' },
+            { name: 'Bus Speeds', url: 'https://data.ny.gov/Transportation/MTA-Bus-Speeds-Beginning-2025/4u4b-jge6', desc: 'MTA Bus Speeds open data + Comptroller report' },
           ]} />
           <SourceCard city="london" sources={[
             { name: 'Underground Performance', url: 'https://tfl.gov.uk/corporate/publications-and-reports/underground-services-performance', desc: '% scheduled service operated' },
             { name: 'London Datastore', url: 'https://data.london.gov.uk/dataset/london-underground-performance-reports/', desc: 'CSV performance data' },
             { name: 'TfL Fares', url: 'https://tfl.gov.uk/fares/', desc: 'Zone-based fares and caps' },
             { name: 'Income Data', url: 'https://www.ons.gov.uk/', desc: 'ONS household income 2024' },
+            { name: 'Bus Speeds', url: 'https://tfl.gov.uk/corporate/publications-and-reports/buses-performance-data', desc: 'TfL Buses Performance Data' },
           ]} />
           <SourceCard city="paris" sources={[
             { name: 'IDFM Open Data', url: 'https://data.iledefrance-mobilites.fr/', desc: 'GTFS, performance, ridership' },
             { name: 'RATP Performance', url: 'https://www.ratp.fr/groupe-ratp/nos-engagements/qualite-et-ponctualite', desc: 'Punctuality by line' },
             { name: 'Navigo Fares', url: 'https://www.iledefrance-mobilites.fr/tarifs', desc: 'All-zone monthly Navigo pass' },
             { name: 'Income Data', url: 'https://www.insee.fr/', desc: 'INSEE household income estimates' },
+            { name: 'Bus Speeds', url: 'https://data.iledefrance-mobilites.fr/', desc: 'RATP vitesse commerciale data' },
           ]} />
           <SourceCard city="tokyo" sources={[
             { name: 'ODPT Open Data', url: 'https://www.odpt.org/', desc: 'Open Data for Public Transportation' },
@@ -58,6 +61,7 @@ export default function MethodologyTab() {
             { name: 'T-money Data', url: 'https://pay.tmoney.co.kr/', desc: 'Fare structure and Climate Card' },
             { name: 'KOTI Transport DB', url: 'https://www.ktdb.go.kr/', desc: 'National transportation statistics' },
             { name: 'Income Data', url: 'https://kostat.go.kr/', desc: 'KOSTAT household income' },
+            { name: 'Bus Lane Performance', url: 'https://www.seoulsolution.kr/en/content/6534', desc: 'Exclusive median bus lane data' },
           ]} />
           <SourceCard city="beijing" sources={[
             { name: 'Beijing Subway', url: 'https://www.bjsubway.com/', desc: 'Official operator data and fare info' },
@@ -112,6 +116,16 @@ export default function MethodologyTab() {
             Tokyo's numbers miss underreported groping. Beijing/Shanghai's near-zero figures also
             reflect airport-style security screening at every station entrance — a different approach
             to safety entirely.
+          </Caveat>
+          <Caveat title="Bus speed" level="medium">
+            All figures use "revenue speed" (total route distance / total trip time including stops,
+            boarding, and traffic). NYC, London, and Paris report this metric directly from
+            operational data. Tokyo, Seoul (corridor-level), Beijing, Shanghai, and Hong Kong figures
+            are derived from government transport surveys, planning models, or academic GPS studies.
+            Paris's 9 km/h figure is for the city proper only (intra-muros) -- the RATP network-wide
+            average including suburbs is ~14 km/h. Seoul's figure reflects its reformed median bus lane
+            corridors, not the full network. Chinese city figures come from municipal transport
+            commissions with limited independent verification.
           </Caveat>
           <Caveat title="System boundaries" level="low">
             NYC = MTA subway + bus. London = TfL Underground + buses (excludes Overground,
