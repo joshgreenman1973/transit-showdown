@@ -1,80 +1,301 @@
 {
-  "lastUpdated": "2026-01",
-  "dataDisclaimer": "Fares converted at nominal Jan 2026 exchange rates, not purchasing power parity. Chinese fare data from official metro operator websites. Hong Kong data from MTR Corporation.",
+  "lastUpdated": "2026-10-31",
+  "dataDisclaimer": "Fares checked against operator and agency sources on Oct. 31, 2026, and converted at Federal Reserve rates for Oct. 23, 2026 (nominal, not purchasing power parity).",
   "exchangeRates": {
-    "GBP": 1.27, "EUR": 1.09, "JPY": 0.0067, "KRW": 0.00074, "CNY": 0.14, "HKD": 0.13
+    "GBP": 1.3375,
+    "EUR": 1.1199,
+    "JPY": 0.006375,
+    "KRW": 0.000755,
+    "CNY": 0.149921,
+    "HKD": 0.127514
   },
   "cities": {
     "nyc": {
-      "name": "New York City", "currency": "USD",
-      "singleRide": 3.00, "singleRideUSD": 3.00, "singleRideNote": "Flat fare, any distance",
-      "busRide": 3.00, "busRideUSD": 3.00, "busNote": "Same as subway; express $7.25",
-      "monthlyCost": 140.00, "monthlyCostUSD": 140.00, "monthlyNote": "~4x OMNY weekly cap ($35)",
-      "medianHouseholdIncome": 86830, "monthlyPctIncome": 1.94,
-      "operatingHours": "24/7", "fareSystem": "Flat fare + weekly cap (OMNY)"
+      "name": "New York City",
+      "currency": "USD",
+      "singleRide": 3.0,
+      "singleRideUSD": 3.0,
+      "singleRideNote": "Flat fare, any distance (since Jan. 2026)",
+      "busRide": 3.0,
+      "busRideUSD": 3.0,
+      "busNote": "Same as subway; express bus $7.25",
+      "monthlyCost": 151.67,
+      "monthlyCostUSD": 151.67,
+      "monthlyNote": "No monthly pass: average month at the $35 OMNY 7-day cap ($35 x 52 weeks / 12, our calculation)",
+      "operatingHours": "24/7",
+      "fareSystem": "Flat fare + weekly cap (OMNY)",
+      "fareSource": "https://www.mta.info/fares-tolls/subway-bus"
     },
     "london": {
-      "name": "London", "currency": "GBP",
-      "singleRide": 2.80, "singleRideUSD": 3.56, "singleRideNote": "Zone 1 peak; off-peak £2.70",
-      "busRide": 1.75, "busRideUSD": 2.22, "busNote": "Flat fare, Hopper transfer free 1hr",
-      "monthlyCost": 156.00, "monthlyCostUSD": 198.12, "monthlyNote": "Zone 1-2 Travelcard",
-      "medianHouseholdIncome": 44500, "monthlyPctIncome": 5.35,
-      "operatingHours": "~5am-midnight", "fareSystem": "Zone-based + daily/weekly caps"
+      "name": "London",
+      "currency": "GBP",
+      "singleRide": 3.1,
+      "singleRideUSD": 4.15,
+      "singleRideNote": "Zone 1 pay-as-you-go peak; off-peak £3.00 (since March 1, 2026)",
+      "busRide": 1.85,
+      "busRideUSD": 2.47,
+      "busNote": "£1.85 from Nov. 1, 2026 (was £1.75); Hopper transfer free for 1 hr",
+      "monthlyCost": 171.7,
+      "monthlyCostUSD": 229.65,
+      "monthlyNote": "Zone 1-2 monthly Travelcard (3.84 x the £44.70 7-day price)",
+      "operatingHours": "~5am-midnight",
+      "fareSystem": "Zone-based + daily/weekly caps",
+      "fareSource": "https://www.london.gov.uk/md3464-march-2026-transport-london-fare-changes"
     },
     "paris": {
-      "name": "Paris", "currency": "EUR",
-      "singleRide": 2.15, "singleRideUSD": 2.34, "singleRideNote": "t+ ticket, zones 1-2",
-      "busRide": 2.15, "busRideUSD": 2.34, "busNote": "Same t+ ticket",
-      "monthlyCost": 86.40, "monthlyCostUSD": 94.18, "monthlyNote": "Navigo pass (all zones)",
-      "medianHouseholdIncome": 38000, "monthlyPctIncome": 2.97,
-      "operatingHours": "~5:30am-1:15am", "fareSystem": "Zone-based + monthly Navigo pass"
+      "name": "Paris",
+      "currency": "EUR",
+      "singleRide": 2.55,
+      "singleRideUSD": 2.86,
+      "singleRideNote": "Métro-Train-RER ticket, any distance in the region (2026)",
+      "busRide": 2.05,
+      "busRideUSD": 2.3,
+      "busNote": "Bus-Tram ticket (2026)",
+      "monthlyCost": 90.8,
+      "monthlyCostUSD": 101.69,
+      "monthlyNote": "Navigo month, all zones (2026)",
+      "operatingHours": "~5:30am-1:15am",
+      "fareSystem": "Flat ticket price region-wide + monthly Navigo pass",
+      "fareSource": "https://entreprendre.service-public.gouv.fr/actualites/A18679?lang=en"
     },
     "tokyo": {
-      "name": "Tokyo", "currency": "JPY",
-      "singleRide": 180, "singleRideUSD": 1.21, "singleRideNote": "Minimum fare (1-6km); increases with distance",
-      "busRide": 210, "busRideUSD": 1.41, "busNote": "Flat fare on Toei buses",
-      "monthlyCost": 12000, "monthlyCostUSD": 80.40, "monthlyNote": "Typical commuter pass (route-based)",
-      "medianHouseholdIncome": 6490000, "monthlyPctIncome": 2.22,
-      "operatingHours": "~5am-midnight", "fareSystem": "Distance-based + commuter passes"
+      "name": "Tokyo",
+      "currency": "JPY",
+      "singleRide": 180,
+      "singleRideUSD": 1.15,
+      "singleRideNote": "Tokyo Metro minimum fare, 1-6 km (¥178 with IC card); rises with distance",
+      "busRide": 210,
+      "busRideUSD": 1.34,
+      "busNote": "Toei bus flat fare, cash or IC",
+      "monthlyCost": null,
+      "monthlyCostUSD": null,
+      "monthlyNote": "No flat monthly pass: commuter passes are priced by route",
+      "operatingHours": "~5am-midnight",
+      "fareSystem": "Distance-based + commuter passes",
+      "fareSource": "https://www.gotokyo.org/en/plan/getting-around/buses/index.html"
     },
     "seoul": {
-      "name": "Seoul", "currency": "KRW",
-      "singleRide": 1400, "singleRideUSD": 1.04, "singleRideNote": "Base fare (T-money, 10km)",
-      "busRide": 1200, "busRideUSD": 0.89, "busNote": "Blue bus base fare (T-money)",
-      "monthlyCost": 65000, "monthlyCostUSD": 48.10, "monthlyNote": "Climate Card (unlimited, 2024)",
-      "medianHouseholdIncome": 52000000, "monthlyPctIncome": 1.50,
-      "operatingHours": "~5:30am-midnight", "fareSystem": "Distance-based + Climate Card monthly"
+      "name": "Seoul",
+      "currency": "KRW",
+      "singleRide": 1550,
+      "singleRideUSD": 1.17,
+      "singleRideNote": "Base fare with transit card, first 10 km (since June 28, 2025)",
+      "busRide": 1500,
+      "busRideUSD": 1.13,
+      "busNote": "Blue (trunk) bus base fare with card (since Aug. 2023)",
+      "monthlyCost": 62000,
+      "monthlyCostUSD": 46.79,
+      "monthlyNote": "Climate Pass (기후동행패스, since Sept. 1, 2026): spending above ₩62,000 a month is refunded. Replaced the Climate Card.",
+      "operatingHours": "~5:30am-midnight",
+      "fareSystem": "Distance-based + monthly refund cap",
+      "fareSource": "https://www.etoday.co.kr/news/view/2480312"
     },
     "beijing": {
-      "name": "Beijing", "currency": "CNY",
-      "singleRide": 3.00, "singleRideUSD": 0.42, "singleRideNote": "Base fare (6km); increases with distance",
-      "busRide": 2.00, "busRideUSD": 0.28, "busNote": "Flat fare with Yikatong card",
-      "monthlyCost": 200, "monthlyCostUSD": 28.00, "monthlyNote": "Estimated typical commuter spend",
-      "medianHouseholdIncome": 85000, "monthlyPctIncome": 2.82,
-      "operatingHours": "~5am-11pm", "fareSystem": "Distance-based, no monthly pass"
+      "name": "Beijing",
+      "currency": "CNY",
+      "singleRide": 3.0,
+      "singleRideUSD": 0.45,
+      "singleRideNote": "Base fare, first 6 km; rises with distance",
+      "busRide": 1.0,
+      "busRideUSD": 0.15,
+      "busNote": "¥2 for first 10 km, half price with a Yikatong card",
+      "monthlyCost": null,
+      "monthlyCostUSD": null,
+      "monthlyNote": "No monthly pass; subway discounts of 20% after ¥100 and 50% after ¥150 spent in a month",
+      "operatingHours": "~5am-11pm",
+      "fareSystem": "Distance-based, no monthly pass",
+      "fareSource": "https://m.bjnews.com.cn/detail/155148513214815.html"
     },
     "shanghai": {
-      "name": "Shanghai", "currency": "CNY",
-      "singleRide": 3.00, "singleRideUSD": 0.42, "singleRideNote": "Base fare (6km); max ¥15",
-      "busRide": 2.00, "busRideUSD": 0.28, "busNote": "Flat fare with transit card",
-      "monthlyCost": 200, "monthlyCostUSD": 28.00, "monthlyNote": "Estimated typical commuter spend",
-      "medianHouseholdIncome": 82000, "monthlyPctIncome": 2.93,
-      "operatingHours": "~5:30am-10:30pm", "fareSystem": "Distance-based, no monthly pass"
+      "name": "Shanghai",
+      "currency": "CNY",
+      "singleRide": 3.0,
+      "singleRideUSD": 0.45,
+      "singleRideNote": "Base fare, first 6 km (a fare revision went to public hearing in Sept. 2026)",
+      "busRide": null,
+      "busRideUSD": null,
+      "busNote": "Not verified",
+      "monthlyCost": null,
+      "monthlyCostUSD": null,
+      "monthlyNote": "No monthly pass",
+      "operatingHours": "~5:30am-10:30pm",
+      "fareSystem": "Distance-based, no monthly pass",
+      "fareSource": "https://www.yicai.com/news/103325337.html"
     },
     "hongkong": {
-      "name": "Hong Kong", "currency": "HKD",
-      "singleRide": 6.20, "singleRideUSD": 0.81, "singleRideNote": "Minimum fare (Octopus); distance-based",
-      "busRide": 4.80, "busRideUSD": 0.62, "busNote": "Varies by route; Octopus discount",
-      "monthlyCost": 600, "monthlyCostUSD": 78.00, "monthlyNote": "Monthly Pass Plus (select zones)",
-      "medianHouseholdIncome": 310000, "monthlyPctIncome": 2.32,
-      "operatingHours": "~6am-1am", "fareSystem": "Distance-based + monthly pass options"
+      "name": "Hong Kong",
+      "currency": "HKD",
+      "singleRide": 4.0,
+      "singleRideUSD": 0.51,
+      "singleRideNote": "Lowest adult Octopus fare on MTR heavy rail; distance-based",
+      "busRide": null,
+      "busRideUSD": null,
+      "busNote": "Varies by route and operator; not verified",
+      "monthlyCost": null,
+      "monthlyCostUSD": null,
+      "monthlyNote": "No network-wide monthly pass: route-based Monthly Passes cost HK$430-675 (2024 prices; MTR fares frozen in 2025 and 2026)",
+      "operatingHours": "~6am-1am",
+      "fareSystem": "Distance-based + monthly pass options",
+      "fareSource": "https://opendata.mtr.com.hk/data/mtr_lines_fares.csv"
     }
   },
   "comparisons": [
-    { "metric": "Single Subway Ride (USD)", "nyc": 3.00, "london": 3.56, "paris": 2.34, "tokyo": 1.21, "seoul": 1.04, "beijing": 0.42, "shanghai": 0.42, "hongkong": 0.81 },
-    { "metric": "Single Bus Ride (USD)", "nyc": 3.00, "london": 2.22, "paris": 2.34, "tokyo": 1.41, "seoul": 0.89, "beijing": 0.28, "shanghai": 0.28, "hongkong": 0.62 },
-    { "metric": "Monthly Cost (USD)", "nyc": 140.00, "london": 198.12, "paris": 94.18, "tokyo": 80.40, "seoul": 48.10, "beijing": 28.00, "shanghai": 28.00, "hongkong": 78.00 },
-    { "metric": "Monthly as % of Income", "nyc": 1.94, "london": 5.35, "paris": 2.97, "tokyo": 2.22, "seoul": 1.50, "beijing": 2.82, "shanghai": 2.93, "hongkong": 2.32 },
-    { "metric": "Annual Transit Spend (USD)", "nyc": 1680, "london": 2377, "paris": 1130, "tokyo": 965, "seoul": 577, "beijing": 336, "shanghai": 336, "hongkong": 936 }
-  ]
+    {
+      "metric": "Single Subway Ride (USD)",
+      "nyc": 3.0,
+      "london": 4.15,
+      "paris": 2.86,
+      "tokyo": 1.15,
+      "seoul": 1.17,
+      "beijing": 0.45,
+      "shanghai": 0.45,
+      "hongkong": 0.51
+    },
+    {
+      "metric": "Single Bus Ride (USD)",
+      "nyc": 3.0,
+      "london": 2.47,
+      "paris": 2.3,
+      "tokyo": 1.34,
+      "seoul": 1.13,
+      "beijing": 0.15,
+      "shanghai": null,
+      "hongkong": null
+    },
+    {
+      "metric": "Monthly Pass or Cap (USD)",
+      "nyc": 151.67,
+      "london": 229.65,
+      "paris": 101.69,
+      "tokyo": null,
+      "seoul": 46.79,
+      "beijing": null,
+      "shanghai": null,
+      "hongkong": null
+    },
+    {
+      "metric": "Annual Pass Cost (USD, 12 months)",
+      "nyc": 1820,
+      "london": 2756,
+      "paris": 1220,
+      "tokyo": null,
+      "seoul": 561,
+      "beijing": null,
+      "shanghai": null,
+      "hongkong": null
+    }
+  ],
+  "exchangeRateNote": "U.S. dollars per unit, Federal Reserve H.10 rates for Oct. 23, 2026 (FRED series DEXUSUK, DEXUSEU, DEXJPUS, DEXKOUS, DEXCHUS, DEXHKUS)",
+  "funding": {
+    "label": "Funding model & farebox recovery",
+    "description": "Share of operating costs covered by fares, where an official or agency-derived figure exists. Each system defines the ratio differently; figures are directional.",
+    "data": {
+      "nyc": {
+        "fareboxRecoveryPct": 33.4,
+        "year": "2025",
+        "measure": "MTA farebox operating ratio, all agencies, full-year 2025",
+        "ownership": "Public: the MTA, a New York State public-benefit corporation",
+        "model": "Fares and tolls covered 39% of the MTA operating budget in 2024, down from an average of 52% in 2012-2019, per the State Comptroller. The rest comes from dedicated taxes and state and city subsidies.",
+        "private": "None in subway operations",
+        "source": "MTA Finance Committee financial performance report (Jan. 2026)",
+        "sourceUrl": "https://www.mta.info/document/197076",
+        "extraSources": [
+          {
+            "name": "NY State Comptroller, report 4-2026",
+            "url": "https://www.osc.ny.gov/files/reports/pdf/report-4-2026.pdf"
+          }
+        ],
+        "confidence": "high"
+      },
+      "london": {
+        "fareboxRecoveryPct": 53.1,
+        "year": "FY2024/25",
+        "measure": "Moody's farebox recovery ratio (unaudited figures)",
+        "ownership": "Public: Transport for London, part of the Greater London Authority",
+        "model": "TfL reported passenger income of £5,004.4m in 2024/25. The rest of its income comes from grants, business rates, the congestion charge, advertising and property.",
+        "private": "Bus routes are run by private operators under TfL contracts.",
+        "source": "Moody's credit opinion on TfL (July 10, 2025)",
+        "sourceUrl": "https://content.tfl.gov.uk/credit-opinion-transport-for-london-10jul2025.pdf",
+        "extraSources": [
+          {
+            "name": "TfL Annual Report 2024/25",
+            "url": "https://content.tfl.gov.uk/tfl-annual-report-and-statement-of-accounts-2024-25.pdf"
+          }
+        ],
+        "confidence": "high"
+      },
+      "paris": {
+        "fareboxRecoveryPct": 37,
+        "year": "2024",
+        "measure": "Fare revenue ÷ operating spending (our calculation from IDFM accounts)",
+        "ownership": "Public: Île-de-France Mobilités (IDFM), the regional authority; RATP and SNCF operate under contract",
+        "model": "In 2024 IDFM took in €4.3B in fare revenue and €6.4B in tax revenue, which includes the versement mobilité payroll tax on employers, against €11.5B in operating spending.",
+        "private": "Services are being opened to competitive tendering, starting with buses.",
+        "source": "IDFM 2024 compte administratif (April 2025)",
+        "sourceUrl": "https://presse.iledefrance-mobilites.fr/compte-administratif-2024-engagements-tenus-pour-ile-de-france-mobilites/",
+        "confidence": "high"
+      },
+      "tokyo": {
+        "fareboxRecoveryPct": null,
+        "year": null,
+        "measure": "No published farebox ratio",
+        "ownership": "Mixed: Tokyo Metro (listed Oct. 23, 2024) and Toei (Tokyo Metropolitan Government), plus JR East and private railways",
+        "model": "Tokyo Metro reported operating revenue of ¥422.4B and operating profit of ¥89.6B (21.2% margin) for the year to March 2026. Those totals include non-fare businesses.",
+        "private": "JR East and private railways run most commuter rail.",
+        "source": "Tokyo Metro earnings release, FY to March 2026",
+        "sourceUrl": "https://www2.jpx.co.jp/disc/90230/081220260428513381_tse-acedjpsm-90230-20260428390230-ixbrl.htm",
+        "confidence": "n/a"
+      },
+      "seoul": {
+        "fareboxRecoveryPct": 57,
+        "year": "2025",
+        "measure": "Seoul Metro cost recovery per passenger (원가보전율)",
+        "ownership": "Public: Seoul Metro (Seoul Metropolitan Government) and Korail",
+        "model": "In 2025 Seoul Metro spent ₩1,817 per passenger against an average fare of ₩1,036. Cost recovery was 53.9% in 2024. The city covers the shortfall.",
+        "private": "Some lines run as public-private concessions.",
+        "source": "Herald Business, reporting Seoul Metro figures (June 2026)",
+        "sourceUrl": "https://www.heraldk.com/article/2026061114342074222",
+        "confidence": "moderate"
+      },
+      "beijing": {
+        "fareboxRecoveryPct": null,
+        "year": null,
+        "measure": "No published figure found",
+        "ownership": "Public: Beijing municipal operators",
+        "model": "We found no published farebox ratio. Fares have not changed since Dec. 2014.",
+        "private": "Not checked",
+        "source": null,
+        "sourceUrl": null,
+        "confidence": "n/a"
+      },
+      "shanghai": {
+        "fareboxRecoveryPct": 55,
+        "year": "2023-2025",
+        "measure": "Fares as share of pricing cost (Shanghai fare-hearing documents)",
+        "ownership": "Public: Shanghai Shentong Metro Group",
+        "model": "Fare-hearing documents published in Aug. 2026 put fare coverage of pricing cost at about 55% for 2023-2025, the basis for a proposed fare revision.",
+        "private": "Not checked",
+        "source": "Yicai, on the Shanghai Development and Reform Commission hearing (Aug. 2026)",
+        "sourceUrl": "https://www.yicai.com/news/103325337.html",
+        "confidence": "moderate"
+      },
+      "hongkong": {
+        "fareboxRecoveryPct": null,
+        "year": null,
+        "measure": "MTR does not publish a farebox ratio",
+        "ownership": "Mixed: MTR Corporation, listed in Hong Kong and majority-owned by the government",
+        "model": "MTR's 2024 net profit was HK$15.77B, of which HK$10.27B came from property development, the 'Rail plus Property' model. MIT's Transit Lab cites a 187% farebox ratio for 2015.",
+        "private": "Listed company with private minority shareholders.",
+        "source": "MTR 2024 annual results (March 2025)",
+        "sourceUrl": "https://doc.irasia.com/listco/hk/mtr/annual/2024/respress.pdf",
+        "extraSources": [
+          {
+            "name": "MIT Transit Lab (2015 ratio)",
+            "url": "https://www.transitlab.mit.edu/partners/mtr"
+          }
+        ],
+        "confidence": "high"
+      }
+    }
+  }
 }

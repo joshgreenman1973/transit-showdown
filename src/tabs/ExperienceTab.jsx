@@ -8,6 +8,8 @@ import SectionTitle from '../components/SectionTitle';
 import ChartWrapper from '../components/ChartWrapper';
 import CaveatBox from '../components/CaveatBox';
 
+const confColor = (c) => (c === 'high' ? '#1B7F3A' : c === 'moderate' ? '#B58900' : c === 'low' ? '#C2410C' : '#777');
+
 export default function ExperienceTab({ data }) {
   if (!data) return null;
 
@@ -52,10 +54,9 @@ export default function ExperienceTab({ data }) {
           <p><strong>Paris is shockingly inaccessible</strong> at just 3% — only 9 of 308 stations.
           The Métro's deep, narrow stations built in 1900 make retrofit nearly impossible.
           The Grand Paris Express (opening 2025-2030) will be fully accessible.</p>
-          <p style={{ marginTop: 10 }}><strong>NYC's 28% is the worst among modern systems</strong> —
-          a legacy of building before accessibility mandates. The MTA's current capital plan
-          aims to make 95% of stations accessible by 2055, but progress is slow and expensive
-          ($100M+ per station for some retrofits).</p>
+          <p style={{ marginTop: 10 }}><strong>NYC's 34% (161 of 472 stations, July 2026) is among the
+          lowest here</strong>, a legacy of building before accessibility mandates. Under a 2022
+          legal settlement the MTA aims to make 95% of stations accessible by 2055.</p>
           <p style={{ marginTop: 10 }}><strong>Seoul and Tokyo lead</strong> thanks to newer construction
           and strong national accessibility laws (Japan's Barrier-Free Law, Korea's Mobility Act).</p>
         </div>
@@ -110,7 +111,7 @@ export default function ExperienceTab({ data }) {
           </ResponsiveContainer>
           <div style={styles.chartNote}>
             Seoul has exceeded pre-pandemic ridership since mid-2023, partly driven by the
-            Climate Card unlimited pass launched in 2024. NYC remains the furthest behind at ~71%.
+            Climate Card unlimited pass launched in 2024. NYC was furthest behind at ~71% in late 2024; the MTA put 2025 subway ridership at about 75% of 2019.
           </div>
         </div>
       </ChartWrapper>
@@ -241,22 +242,20 @@ export default function ExperienceTab({ data }) {
       )}
 
       {/* SAFETY */}
-      <SectionTitle>Safety: Crime Rates</SectionTitle>
+      <SectionTitle>Safety: Reported Crime</SectionTitle>
 
       <CaveatBox>
-        <strong>The least comparable metric in this entire tool.</strong> What constitutes
-        a "crime" varies enormously: London includes antisocial behavior and fare evasion;
-        NYC counts only major felonies; Tokyo primarily counts groping; Paris is suspected
-        of significant underreporting. Reporting culture and policing practices differ
-        dramatically. Use this section with extreme caution.
+        <strong>The least comparable metric in this tool.</strong> {safety.headlineCaveat} NYC counts
+        major felonies only; London counts every notifiable offense, including theft. The roughly
+        tenfold gap between them comes mostly from what is counted, not from how dangerous the systems are.
       </CaveatBox>
 
       <ComparisonBar
-        label="Reported Crimes per Million Trips"
+        label="Reported crimes per million journeys (where published)"
         values={Object.fromEntries(CITIES.map((c) => [c, safety.data[c].crimePerMillionTrips]))}
         format={(v) => v.toFixed(1)}
-        note="Lower is better — but definitions vary wildly (see caveat)"
-        caveat="Low comparability — crime definitions and reporting practices differ by country"
+        note="N/A = no published metro rate. NYC 2025 = major felonies; London Jan-Jun 2025 = all notifiable offenses."
+        caveat="Not comparable across cities: definitions differ (see cards below)"
       />
 
       <ChartWrapper>
@@ -264,13 +263,36 @@ export default function ExperienceTab({ data }) {
           {CITIES.map((c) => {
             const d = safety.data[c];
             const cfg = CITY_CONFIG[c];
+            const hasRate = d.crimePerMillionTrips != null;
             return (
               <div key={c} style={{ ...styles.detailCard, borderLeft: `4px solid ${cfg.color}` }}>
-                <div style={{ color: cfg.color, fontWeight: 700, fontSize: 13 }}>{cfg.name}</div>
-                <div style={styles.bigNum}>{d.crimePerMillionTrips}</div>
-                <div style={styles.detailSub}>per million trips ({d.year})</div>
+                <div style={styles.cardHead}>
+                  <div style={{ color: cfg.color, fontWeight: 700, fontSize: 13 }}>{cfg.name}</div>
+                  {d.confidence !== 'n/a' && (
+                    <div style={{ ...styles.conf, color: confColor(d.confidence) }}>{d.confidence} confidence</div>
+                  )}
+                </div>
+                <div style={styles.bigNum}>{hasRate ? d.crimePerMillionTrips : 'N/A'}</div>
+                <div style={styles.detailSub}>
+                  {hasRate ? `per million journeys (${d.year})` : d.rateNote}
+                  {d.yoyChange && <span style={{ color: '#666', marginLeft: 6 }}>· {d.yoyChange}</span>}
+                </div>
+                {d.numerator != null && (
+                  <div style={styles.detailLine}><strong>Count:</strong> {d.numerator.toLocaleString()} {d.numeratorLabel}</div>
+                )}
+                {d.denominatorM != null && (
+                  <div style={styles.detailLine}><strong>Rides:</strong> {d.denominatorM.toLocaleString()}{d.denominatorLabel ? ` ${d.denominatorLabel}` : ' million'}</div>
+                )}
+                <div style={styles.detailNote}><strong>What's counted:</strong> {d.category}</div>
                 <div style={styles.detailNote}>{d.note}</div>
-                <div style={{ fontSize: 10, color: '#aaa', marginTop: 4 }}>Source: {d.source}</div>
+                {d.sourceUrl && (
+                  <div style={styles.sourceLine}>
+                    Source: <a href={d.sourceUrl} target="_blank" rel="noopener noreferrer" style={styles.link}>{d.source}</a>
+                    {(d.extraSources || []).map((x) => (
+                      <span key={x.url}>; <a href={x.url} target="_blank" rel="noopener noreferrer" style={styles.link}>{x.name}</a></span>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -279,12 +301,13 @@ export default function ExperienceTab({ data }) {
 
       <ChartWrapper delay={0.1}>
         <div style={styles.insight}>
-          <p><strong>London's high number is misleading</strong> — British Transport Police use a
-          much broader definition of "crime" that includes fare evasion, verbal harassment, and
-          antisocial behavior. NYC's figure counts only felonies (assault, robbery, grand larceny).</p>
-          <p style={{ marginTop: 10 }}><strong>Tokyo's 0.4 is real but incomplete</strong> — Japan has
-          genuinely low violent crime, but groping (chikan) on packed trains is a persistent problem
-          that is widely acknowledged to be underreported despite dedicated women-only cars.</p>
+          <p><strong>NYC's subway had 2,160 major felonies in 2025</strong>, down 4% from 2,251 in 2024,
+          on about 1.28 billion rides: 1.69 per million. amNY, reporting NYPD figures, called it the safest
+          12 months in 16 years, excluding pandemic years.</p>
+          <p style={{ marginTop: 10 }}><strong>London's 20.7 per million (January to June 2025)</strong> covers
+          all notifiable offenses recorded on the Underground, a far wider net than NYC's seven major felonies.</p>
+          <p style={{ marginTop: 10 }}><strong>Tokyo's arrest count understates groping.</strong> Tokyo police made
+          667 chikan arrests in 2025, while 56.3% of women in a 2024 Tokyo government survey said they had been groped.</p>
         </div>
       </ChartWrapper>
     </div>
@@ -298,7 +321,7 @@ const styles = {
   },
   chartNote: { fontSize: 12, color: '#888', marginTop: 8, lineHeight: 1.5, fontStyle: 'italic' },
   detailGrid: {
-    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 20,
+    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: 10, marginBottom: 20,
   },
   detailCard: {
     backgroundColor: '#fff', border: '1px solid #E5E5E5',
@@ -307,6 +330,11 @@ const styles = {
   bigNum: { fontSize: 24, fontWeight: 800, color: '#1A1A1A', margin: '4px 0' },
   detailSub: { fontSize: 12, color: '#666' },
   detailNote: { fontSize: 11, color: '#888', marginTop: 6, lineHeight: 1.5 },
+  detailLine: { fontSize: 11, color: '#444', marginTop: 4 },
+  cardHead: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 },
+  conf: { fontSize: 10, fontWeight: 600, textTransform: 'uppercase' },
+  sourceLine: { fontSize: 10, color: '#666', marginTop: 6, lineHeight: 1.5 },
+  link: { color: '#0E47A1' },
   insight: {
     backgroundColor: '#F8F8F0', border: '1px solid #E8E8D8',
     borderRadius: 10, padding: '16px 20px', fontSize: 14, lineHeight: 1.6, color: '#444',

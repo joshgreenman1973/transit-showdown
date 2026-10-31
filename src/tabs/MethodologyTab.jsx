@@ -22,6 +22,11 @@ export default function MethodologyTab() {
           from official operator annual reports, which have limited independent verification. Crime data
           definitions vary so dramatically by country that cross-city comparisons should be treated with
           particular skepticism.
+          <br /><br />
+          <strong>Checked Oct. 31, 2026:</strong> fares, NYC station accessibility and ridership, the safety
+          section and the funding section were checked against operator and agency sources, which are linked
+          on each card. The on-time, headway and ridership-recovery series run through 2024 and have not been
+          updated. Other cities' system sizes, accessibility shares and bus speeds were not rechecked.
         </div>
       </ChartWrapper>
 
@@ -33,49 +38,46 @@ export default function MethodologyTab() {
             { name: 'Subway On-Time Performance', url: 'https://data.ny.gov/Transportation/MTA-Subway-Terminal-On-Time-Performance-Beginning-/vtvh-gimj', desc: '% trains arriving at terminal on schedule' },
             { name: 'Wait Assessment', url: 'https://data.ny.gov/Transportation/MTA-Subway-Wait-Assessment-2020-2024/6b7q-snec', desc: 'Regularity of train spacing' },
             { name: 'MTA Fares', url: 'https://www.mta.info/fares', desc: 'OMNY caps and fare structure' },
-            { name: 'Income Data', url: 'https://data.census.gov/', desc: 'American Community Survey 2024' },
+            { name: 'Subway Ridership 2025', url: 'https://www.mta.info/agency/new-york-city-transit/ridership/2025', desc: '1.28 billion rides in 2025' },
+            { name: 'Station Accessibility', url: 'https://www.mta.info/document/215256', desc: '161 accessible stations (July 2026 board update)' },
             { name: 'Bus Speeds', url: 'https://data.ny.gov/Transportation/MTA-Bus-Speeds-Beginning-2025/4u4b-jge6', desc: 'MTA Bus Speeds open data + Comptroller report' },
           ]} />
           <SourceCard city="london" sources={[
             { name: 'Underground Performance', url: 'https://tfl.gov.uk/corporate/publications-and-reports/underground-services-performance', desc: '% scheduled service operated' },
             { name: 'London Datastore', url: 'https://data.london.gov.uk/dataset/london-underground-performance-reports/', desc: 'CSV performance data' },
             { name: 'TfL Fares', url: 'https://tfl.gov.uk/fares/', desc: 'Zone-based fares and caps' },
-            { name: 'Income Data', url: 'https://www.ons.gov.uk/', desc: 'ONS household income 2024' },
+            { name: 'March 2026 Fare Changes', url: 'https://www.london.gov.uk/md3464-march-2026-transport-london-fare-changes', desc: 'Mayoral decision setting 2026 fares' },
             { name: 'Bus Speeds', url: 'https://tfl.gov.uk/corporate/publications-and-reports/buses-performance-data', desc: 'TfL Buses Performance Data' },
           ]} />
           <SourceCard city="paris" sources={[
             { name: 'IDFM Open Data', url: 'https://data.iledefrance-mobilites.fr/', desc: 'GTFS, performance, ridership' },
             { name: 'RATP Performance', url: 'https://www.ratp.fr/groupe-ratp/nos-engagements/qualite-et-ponctualite', desc: 'Punctuality by line' },
             { name: 'Navigo Fares', url: 'https://www.iledefrance-mobilites.fr/tarifs', desc: 'All-zone monthly Navigo pass' },
-            { name: 'Income Data', url: 'https://www.insee.fr/', desc: 'INSEE household income estimates' },
+            { name: '2026 Fares', url: 'https://entreprendre.service-public.gouv.fr/actualites/A18679?lang=en', desc: 'Service-public.fr summary of 2026 IDFM fares' },
             { name: 'Bus Speeds', url: 'https://data.iledefrance-mobilites.fr/', desc: 'RATP vitesse commerciale data' },
           ]} />
           <SourceCard city="tokyo" sources={[
             { name: 'ODPT Open Data', url: 'https://www.odpt.org/', desc: 'Open Data for Public Transportation' },
             { name: 'Tokyo Metro Stats', url: 'https://www.tokyometro.jp/corporate/enterprise/passenger_rail/transportation/index.html', desc: 'Ridership and performance' },
             { name: 'Fare Tables', url: 'https://www.tokyometro.jp/en/ticket/regular/index.html', desc: 'Distance-based fare chart' },
-            { name: 'Income Data', url: 'https://www.stat.go.jp/', desc: 'Government household survey' },
           ]} />
           <SourceCard city="seoul" sources={[
             { name: 'Seoul Open Data', url: 'https://data.seoul.go.kr/', desc: 'Metro ridership, performance, infrastructure' },
             { name: 'T-money Data', url: 'https://pay.tmoney.co.kr/', desc: 'Fare structure and Climate Card' },
             { name: 'KOTI Transport DB', url: 'https://www.ktdb.go.kr/', desc: 'National transportation statistics' },
-            { name: 'Income Data', url: 'https://kostat.go.kr/', desc: 'KOSTAT household income' },
             { name: 'Bus Lane Performance', url: 'https://www.seoulsolution.kr/en/content/6534', desc: 'Exclusive median bus lane data' },
           ]} />
           <SourceCard city="beijing" sources={[
             { name: 'Beijing Subway', url: 'https://www.bjsubway.com/', desc: 'Official operator data and fare info' },
             { name: 'Beijing Transport Commission', url: 'https://jtw.beijing.gov.cn/', desc: 'Municipal transport statistics' },
-            { name: 'NBS China', url: 'https://www.stats.gov.cn/', desc: 'National Bureau of Statistics income data' },
           ]} />
           <SourceCard city="shanghai" sources={[
             { name: 'Shanghai Metro', url: 'https://www.shmetro.com/', desc: 'Official operator and ridership data' },
             { name: 'Shanghai Open Data', url: 'https://data.sh.gov.cn/', desc: 'Municipal open data portal' },
-            { name: 'NBS China', url: 'https://www.stats.gov.cn/', desc: 'National Bureau of Statistics income data' },
           ]} />
           <SourceCard city="hongkong" sources={[
             { name: 'MTR Corporation', url: 'https://www.mtr.com.hk/', desc: 'Annual reports, ridership, performance' },
-            { name: 'HK Census & Statistics', url: 'https://www.censtatd.gov.hk/', desc: 'Income and demographic data' },
+            { name: 'MTR Fare Table', url: 'https://opendata.mtr.com.hk/data/mtr_lines_fares.csv', desc: 'MTR open data, all station-pair fares' },
             { name: 'HK Transport Dept', url: 'https://www.td.gov.hk/', desc: 'Transport statistics and open data' },
           ]} />
         </div>
@@ -104,18 +106,18 @@ export default function MethodologyTab() {
             means the "minimum fare" understates typical journey costs. London's zone system
             means the Zone 1 fare overstates typical commuter costs (most ride Zone 1-2 or 1-3).
           </Caveat>
-          <Caveat title="Income & affordability" level="medium">
-            Eight different countries/territories with different income surveys, tax systems,
-            and household definitions. Chinese income data may not fully capture cost of living
-            in Beijing/Shanghai. The "% of income" metric is approximate — useful for ordering
-            (Beijing cheapest, London most expensive) rather than precise ratios.
+          <Caveat title="Monthly passes" level="medium">
+            Only NYC (via its weekly cap), London, Paris and Seoul have a flat monthly product. Tokyo and
+            Hong Kong sell route-based commuter passes; Beijing discounts heavy riders; Shanghai has no pass.
+            Those cities show N/A rather than an estimate. An earlier version compared monthly cost with
+            median income; it was removed because the income figures could not be traced to a source and
+            the countries define income differently.
           </Caveat>
           <Caveat title="Safety / crime" level="high">
-            The least comparable metric. London counts antisocial behavior; NYC counts only
-            felonies; Chinese cities use state-reported figures with limited independent verification;
-            Tokyo's numbers miss underreported groping. Beijing/Shanghai's near-zero figures also
-            reflect airport-style security screening at every station entrance — a different approach
-            to safety entirely.
+            The least comparable metric. Only NYC (major felonies) and London (all notifiable offenses)
+            publish a metro crime rate per million journeys, and they count very different things. Tokyo's
+            figure is groping arrests only and Hong Kong's is a city-wide total. Paris, Seoul, Beijing and
+            Shanghai publish no metro-specific figure we could find, so they show N/A rather than an estimate.
           </Caveat>
           <Caveat title="Bus speed" level="medium">
             All figures use "revenue speed" (total route distance / total trip time including stops,
@@ -134,8 +136,8 @@ export default function MethodologyTab() {
             Beijing/Shanghai = all urban metro lines. Hong Kong = MTR heavy rail (excludes light rail).
           </Caveat>
           <Caveat title="Currency conversion" level="low">
-            GBP $1.27, EUR $1.09, JPY $0.0067, KRW $0.00074, CNY $0.14, HKD $0.13.
-            Rates as of January 2026.
+            GBP $1.3375, EUR $1.1199, JPY $0.00637, KRW $0.000755, CNY $0.1499, HKD $0.1275.
+            Federal Reserve H.10 rates for Oct. 23, 2026, via FRED.
           </Caveat>
           <Caveat title="Chinese data transparency" level="high">
             Beijing and Shanghai metro data comes from official operator and government sources.
@@ -150,7 +152,7 @@ export default function MethodologyTab() {
 
       <ChartWrapper>
         <div style={styles.about}>
-          Built for personal exploration. Data as of January 2026.
+          Built for personal exploration. Fares checked Oct. 31, 2026.
           Not affiliated with any transit agency.
         </div>
       </ChartWrapper>
@@ -192,7 +194,7 @@ function Caveat({ title, level, children }) {
 const styles = {
   intro: { fontSize: 15, lineHeight: 1.7, color: '#444' },
   sourceGrid: {
-    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14,
+    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 14,
   },
   sourceCard: { backgroundColor: '#fff', border: '1px solid #E5E5E5', borderRadius: 10, padding: 18 },
   sourceCity: { fontSize: 14, fontWeight: 700, marginBottom: 12 },

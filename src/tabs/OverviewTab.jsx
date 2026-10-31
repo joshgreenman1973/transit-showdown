@@ -86,37 +86,37 @@ export default function OverviewTab({ faresData, reliabilityData }) {
 const takeaways = {
   nyc: [
     'Only 24/7 subway in the group',
-    'Affordable monthly pass (1.9% of income)',
+    '$3 flat fare, capped at $35 a week',
     'Worst on-time performance (~80%)',
-    'Only 28% of stations accessible',
+    '34% of stations accessible (161 of 472)',
   ],
   london: [
     'Pioneered underground rail (1863)',
-    'Most expensive monthly pass ($198)',
+    'Priciest monthly pass ($230, Zones 1-2)',
     'Strong reliability (91-92%)',
     'Only 36% of stations step-free',
   ],
   paris: [
-    'Cheapest European monthly pass ($94)',
+    'One ticket price region-wide since 2025',
     'Strikes cause reliability dips',
     'Only 3% of stations accessible (!)',
     'Grand Paris Express adding 68 stations',
   ],
   tokyo: [
-    'Highest ridership per line in the world',
+    'Fares from ¥180 ($1.15)',
     'Legendary punctuality (96%+)',
     '92% of stations accessible',
     'Complex multi-operator system',
   ],
   seoul: [
     'Most stations in the group (739)',
-    'Cheapest monthly pass ($48)',
+    'Cheapest monthly cap ($47)',
     '95% of stations accessible',
     'Exceeded pre-COVID ridership',
   ],
   beijing: [
     'Highest daily ridership (12M)',
-    'Cheapest rides ($0.42)',
+    'Cheapest rides ($0.45, tied with Shanghai)',
     'Airport-style security screening',
     'Fastest-growing network in history',
   ],
@@ -139,10 +139,10 @@ const styles = {
   cityRow: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginBottom: 8 },
   cityPill: {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
-    padding: '10px 16px', borderRadius: 10,
+    padding: '10px 8px', borderRadius: 10,
   },
   cityName: { fontSize: 11, fontWeight: 400, marginTop: 2 },
-  takeawayGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 },
+  takeawayGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: 12 },
   takeaway: {
     backgroundColor: '#fff', border: '1px solid #E5E5E5',
     borderRadius: 10, padding: '14px 16px',
