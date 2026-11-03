@@ -18,7 +18,7 @@ export default function OverviewTab({ faresData, reliabilityData }) {
       <ChartWrapper>
         <div style={styles.intro}>
           Eight of the world's great transit systems, compared across
-          reliability, frequency, affordability, accessibility, and safety.
+          reliability, frequency, affordability, accessibility and safety.
         </div>
       </ChartWrapper>
 
@@ -33,7 +33,7 @@ export default function OverviewTab({ faresData, reliabilityData }) {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Subway / Metro: Tale of the Tape</SectionTitle>
+      <SectionTitle>Subway/metro: tale of the tape</SectionTitle>
 
       <ComparisonBar label="Stations" values={toObj('stations')} format={(v) => Math.round(v).toString()} />
       <ComparisonBar label="Lines / Routes" values={toObj('lines')} format={(v) => Math.round(v).toString()} />
@@ -51,13 +51,13 @@ export default function OverviewTab({ faresData, reliabilityData }) {
       />
       <ComparisonBar label="Avg Weekday Riders (millions)" values={toObj('avgWeekdayM')} format={(v) => v.toFixed(1) + 'M'} />
 
-      <SectionTitle>Bus Network</SectionTitle>
+      <SectionTitle>Bus network</SectionTitle>
 
       <ComparisonBar label="Routes" values={busObj('routes')} format={(v) => Math.round(v).toString()} />
       <ComparisonBar label="Fleet Size" values={busObj('fleet')} format={(v) => Math.round(v).toLocaleString()} />
       <ComparisonBar label="Annual Riders (millions)" values={busObj('annualRiders')} format={(v) => Math.round(v).toLocaleString()} />
 
-      <SectionTitle>Quick Comparison</SectionTitle>
+      <SectionTitle>Quick comparison</SectionTitle>
 
       <CaveatBox>
         Each system measures "on-time" differently. Tokyo counts trains within 5 minutes of schedule;
@@ -99,12 +99,12 @@ const takeaways = {
   paris: [
     'One ticket price region-wide since 2025',
     'Strikes cause reliability dips',
-    'Only 3% of stations accessible (!)',
+    'Only 3% of stations accessible',
     'Grand Paris Express adding 68 stations',
   ],
   tokyo: [
     'Fares from ¥180 ($1.15)',
-    'Legendary punctuality (96%+)',
+    '96%+ on-time performance',
     '92% of stations accessible',
     'Complex multi-operator system',
   ],
@@ -127,7 +127,7 @@ const takeaways = {
     'Exceeded pre-COVID ridership by 13%',
   ],
   hongkong: [
-    'Gold standard: 99.5%+ reliability',
+    '99.5%+ reliability',
     '98% of stations accessible',
     'One of few profitable metro systems',
     'Smallest network, highest efficiency',

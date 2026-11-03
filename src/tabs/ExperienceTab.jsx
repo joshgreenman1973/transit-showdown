@@ -18,7 +18,7 @@ export default function ExperienceTab({ data }) {
   return (
     <div>
       {/* ACCESSIBILITY */}
-      <SectionTitle>Accessibility: Step-Free Station Access</SectionTitle>
+      <SectionTitle>Accessibility: step-free station access</SectionTitle>
 
       <CaveatBox>
         "Step-free" definitions vary. NYC counts ADA-compliant stations (elevator from street to platform).
@@ -51,10 +51,10 @@ export default function ExperienceTab({ data }) {
 
       <ChartWrapper delay={0.1}>
         <div style={styles.insight}>
-          <p><strong>Paris is shockingly inaccessible</strong> at just 3% — only 9 of 308 stations.
+          <p><strong>Paris is the least accessible</strong> at 3%, or 9 of 308 stations.
           The Métro's deep, narrow stations built in 1900 make retrofit nearly impossible.
           The Grand Paris Express (opening 2025-2030) will be fully accessible.</p>
-          <p style={{ marginTop: 10 }}><strong>NYC's 34% (161 of 472 stations, July 2026) is among the
+          <p style={{ marginTop: 10 }}><strong>New York City's 34% (161 of 472 stations, July 2026) is among the
           lowest here</strong>, a legacy of building before accessibility mandates. Under a 2022
           legal settlement the MTA aims to make 95% of stations accessible by 2055.</p>
           <p style={{ marginTop: 10 }}><strong>Seoul and Tokyo lead</strong> thanks to newer construction
@@ -63,12 +63,12 @@ export default function ExperienceTab({ data }) {
       </ChartWrapper>
 
       {/* COVID RECOVERY */}
-      <SectionTitle>Post-COVID Ridership Recovery</SectionTitle>
+      <SectionTitle>Post-COVID ridership recovery</SectionTitle>
 
       <CaveatBox>
         Indexed to 2019 pre-pandemic levels = 100%. Values above 100% mean ridership
-        exceeds 2019. Recovery shaped by work-from-home adoption, tourism return, and
-        policy choices (Seoul's Climate Card stimulated ridership). NYC's slow recovery
+        exceeds 2019. Recovery shaped by work-from-home adoption, tourism return and
+        policy choices (Seoul's Climate Card stimulated ridership). New York City's slow recovery
         reflects high remote-work rates in finance and tech.
       </CaveatBox>
 
@@ -121,7 +121,7 @@ export default function ExperienceTab({ data }) {
 
       <CaveatBox>
         "Commercial speed" includes station dwell time and acceleration/deceleration.
-        It does NOT include walk time, transfers, or waiting. A typical 10km commute time
+        It does NOT include walk time, transfers or waiting. A typical 10km commute time
         is estimated door-to-platform. Paris's low speed reflects extremely short
         inter-station distances (avg 560m), not poor service.
       </CaveatBox>
@@ -164,8 +164,8 @@ export default function ExperienceTab({ data }) {
 
           <CaveatBox>
             Bus "revenue speed" is total route distance divided by total trip time, including all stops,
-            boarding, and traffic delays -- what a passenger actually experiences. NYC, London, and
-            Paris report this metric directly from operational data. Tokyo, Beijing, and Shanghai figures
+            boarding and traffic delays -- the speed a passenger experiences. NYC, London and
+            Paris report this metric directly from operational data. Tokyo, Beijing and Shanghai figures
             are derived from government transport surveys and planning models (marked "moderate" confidence
             below). Paris figure is for intra-muros (city proper) only; its network-wide average
             including suburbs is ~14 km/h.
@@ -182,7 +182,7 @@ export default function ExperienceTab({ data }) {
             label="Typical 5km bus journey (minutes)"
             values={Object.fromEntries(CITIES.map((c) => [c, speed.bus[c].typical5kmMin]))}
             format={(v) => `${Math.round(v)} min`}
-            note="Lower is better. Includes boarding, stops, and traffic."
+            note="Lower is better. Includes boarding, stops and traffic."
           />
 
           <ChartWrapper>
@@ -225,15 +225,15 @@ export default function ExperienceTab({ data }) {
 
           <ChartWrapper delay={0.1}>
             <div style={styles.insight}>
-              <p><strong>Paris has the slowest buses of any city here</strong> at just 9 km/h within city limits --
-              even slower than Manhattan's famously slow 10.1 km/h. The city's aggressive reallocation of road space
-              for bike lanes and pedestrian zones has inadvertently slowed buses without providing compensating
+              <p><strong>Paris has the slowest buses of any city here</strong> at 9 km/h within city limits,
+              slower than Manhattan's 10.1 km/h. The city's reallocation of road space
+              for bike lanes and pedestrian zones has slowed buses without providing compensating
               bus-priority infrastructure.</p>
-              <p style={{ marginTop: 10 }}><strong>Seoul is the standout success story.</strong> Its 2004 median bus
+              <p style={{ marginTop: 10 }}><strong>Seoul sped up its buses.</strong> Its 2004 median bus
               lane reform -- moving bus lanes to the center of major arterials, separated from car traffic -- roughly
               doubled speeds on reformed corridors. The 119+ km exclusive median bus lane network is a model studied
               by transit planners worldwide.</p>
-              <p style={{ marginTop: 10 }}><strong>NYC's 13.2 km/h citywide average masks enormous variation.</strong> Manhattan
+              <p style={{ marginTop: 10 }}><strong>New York City's 13.2 km/h citywide average hides wide variation.</strong> Manhattan
               averages 10.1 km/h while outer-borough routes can reach 16-18 km/h. The MTA's bus lane expansion and
               congestion pricing (launched January 2025) are early policy interventions aimed at improving these numbers.</p>
             </div>
@@ -242,7 +242,7 @@ export default function ExperienceTab({ data }) {
       )}
 
       {/* SAFETY */}
-      <SectionTitle>Safety: Reported Crime</SectionTitle>
+      <SectionTitle>Safety: reported crime</SectionTitle>
 
       <CaveatBox>
         <strong>The least comparable metric in this tool.</strong> {safety.headlineCaveat} NYC counts

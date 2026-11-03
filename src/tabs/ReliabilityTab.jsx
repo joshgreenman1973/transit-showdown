@@ -20,7 +20,7 @@ export default function ReliabilityTab({ data }) {
 
   return (
     <div>
-      <SectionTitle>Subway / Metro On-Time Performance</SectionTitle>
+      <SectionTitle>Subway/metro on-time performance</SectionTitle>
 
       <CaveatBox>
         <strong>Not apples to apples.</strong> Each city defines "on-time" differently:
@@ -57,7 +57,7 @@ export default function ReliabilityTab({ data }) {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Average Subway Headway by Time of Day</SectionTitle>
+      <SectionTitle>Average subway headway by time of day</SectionTitle>
 
       <CaveatBox>
         Headways are system-wide averages from GTFS schedule data.
@@ -92,17 +92,17 @@ export default function ReliabilityTab({ data }) {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Key Observations</SectionTitle>
+      <SectionTitle>Observations</SectionTitle>
 
       <ChartWrapper>
         <div style={styles.insight}>
-          <p><strong>Tokyo and Seoul dominate reliability</strong> — both consistently above 96%.
-          This reflects cultural factors, infrastructure investment, and simpler network designs
+          <p><strong>Tokyo and Seoul are the most reliable</strong>, both consistently above 96%.
+          This reflects cultural factors, infrastructure investment and simpler network designs
           (fewer merging/branching lines than NYC).</p>
           <p style={{ marginTop: 10 }}><strong>Paris is the most volatile</strong> — dropping to ~80% in December
           (strikes) and recovering to 87% in summer. The RATP network is heavily impacted by
           labor actions, which occur more frequently than in other systems.</p>
-          <p style={{ marginTop: 10 }}><strong>NYC is improving</strong> — trending upward from 75% to 83% over
+          <p style={{ marginTop: 10 }}><strong>New York City is improving</strong>, trending upward from 75% to 83% over
           this period, reflecting the MTA's investment in signal modernization and service
           reliability initiatives.</p>
         </div>

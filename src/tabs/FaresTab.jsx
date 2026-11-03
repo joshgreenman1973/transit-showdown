@@ -15,7 +15,7 @@ export default function FaresTab({ data }) {
 
   return (
     <div>
-      <SectionTitle>Fare Comparison (all converted to USD)</SectionTitle>
+      <SectionTitle>Fare comparison (all converted to USD)</SectionTitle>
 
       <CaveatBox>
         <strong>Exchange rates fluctuate.</strong> All non-USD fares converted at Federal Reserve rates for Oct. 23, 2026; fares checked Oct. 31, 2026.
@@ -38,7 +38,7 @@ export default function FaresTab({ data }) {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Side-by-Side Comparison</SectionTitle>
+      <SectionTitle>Side-by-side comparison</SectionTitle>
 
       {comparisons.map((c) => {
         const values = {};
@@ -68,13 +68,13 @@ export default function FaresTab({ data }) {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Fare System Structures</SectionTitle>
+      <SectionTitle>Fare system structures</SectionTitle>
 
       <CaveatBox>
-        These systems are fundamentally different in design. NYC charges a flat fare with a weekly cap;
+        These systems are designed differently. NYC charges a flat fare with a weekly cap;
         Tokyo, Seoul, Beijing, Shanghai and Hong Kong charge by distance; London charges by zone and time of day;
-        Paris has charged one ticket price across the region since 2025. Direct fare comparisons only
-        capture part of the picture.
+        Paris has charged one ticket price across the region since 2025. Direct fare comparisons capture
+        only part of the difference.
       </CaveatBox>
 
       <ChartWrapper>

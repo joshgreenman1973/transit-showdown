@@ -15,12 +15,12 @@ export default function MethodologyTab() {
 
       <ChartWrapper>
         <div style={styles.disclaimer}>
-          <strong>Data provenance note:</strong> The reliability, headway, and ridership recovery figures
-          for Paris, Tokyo, Seoul, Beijing, Shanghai, and Hong Kong are representative estimates based on
+          <strong>Data provenance note:</strong> The reliability, headway and ridership recovery figures
+          for Paris, Tokyo, Seoul, Beijing, Shanghai and Hong Kong are representative estimates based on
           published annual reports and government statistics — not live API pulls. NYC data is closest to
           source (Socrata open data). London data is from TfL published reports. Chinese metro data comes
           from official operator annual reports, which have limited independent verification. Crime data
-          definitions vary so dramatically by country that cross-city comparisons should be treated with
+          definitions vary so much by country that cross-city comparisons should be treated with
           particular skepticism.
           <br /><br />
           <strong>Checked Oct. 31, 2026:</strong> fares, NYC station accessibility and ridership, the safety
@@ -30,7 +30,7 @@ export default function MethodologyTab() {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Data Sources</SectionTitle>
+      <SectionTitle>Data sources</SectionTitle>
 
       <ChartWrapper>
         <div style={styles.sourceGrid}>
@@ -83,20 +83,20 @@ export default function MethodologyTab() {
         </div>
       </ChartWrapper>
 
-      <SectionTitle>Comparability Caveats</SectionTitle>
+      <SectionTitle>Comparability caveats</SectionTitle>
 
       <ChartWrapper>
         <div style={styles.caveats}>
           <Caveat title="On-time / reliability" level="high">
             The biggest apples-to-oranges problem. Each system defines and measures "on-time"
             differently. Tokyo's 96% (within 5 min) and London's 92% (service operated) sound
-            close but measure fundamentally different things. NYC's terminal-arrival metric
+            close but measure different things. NYC's terminal-arrival metric
             penalizes mid-route delays differently than Paris's departure-based metric. The chart
-            shows each system's own standard — not a universal benchmark.
+            shows each system's own standard.
           </Caveat>
           <Caveat title="Headways / frequency" level="medium">
-            We use system-wide averages from GTFS static schedules. But "average" masks huge
-            variance: Tokyo's busiest lines run every 90 seconds while some NYC lines run
+            We use system-wide averages from GTFS static schedules. Averages hide wide
+            variation: Tokyo's busiest lines run every 90 seconds while some NYC lines run
             every 10 minutes at peak. Seoul's 739 stations include suburban lines with longer
             headways. London's 11 lines are all high-frequency trunk lines.
           </Caveat>
@@ -121,9 +121,9 @@ export default function MethodologyTab() {
           </Caveat>
           <Caveat title="Bus speed" level="medium">
             All figures use "revenue speed" (total route distance / total trip time including stops,
-            boarding, and traffic). NYC, London, and Paris report this metric directly from
-            operational data. Tokyo, Seoul (corridor-level), Beijing, Shanghai, and Hong Kong figures
-            are derived from government transport surveys, planning models, or academic GPS studies.
+            boarding and traffic). NYC, London and Paris report this metric directly from
+            operational data. Tokyo, Seoul (corridor-level), Beijing, Shanghai and Hong Kong figures
+            are derived from government transport surveys, planning models or academic GPS studies.
             Paris's 9 km/h figure is for the city proper only (intra-muros) -- the RATP network-wide
             average including suburbs is ~14 km/h. Seoul's figure reflects its reformed median bus lane
             corridors, not the full network. Chinese city figures come from municipal transport

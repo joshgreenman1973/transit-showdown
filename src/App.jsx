@@ -40,7 +40,7 @@ export default function App() {
       <header className="header">
         <div className="header-inner">
           <h1 className="title">Transit Showdown</h1>
-          <p className="subtitle">8 Cities &middot; 5 Dimensions &middot; 1 Comparison</p>
+          <p className="subtitle">8 cities &middot; 5 measures</p>
         </div>
       </header>
 
